@@ -3,7 +3,7 @@ const app = express();
 require('dotenv').config(); 
 app.use(express.json());  
 
-const port = process.env.DB_PORT || 3000;
+const port = process.env.PORT || 3000;
 
 const conn = require("./model/conn/index"); 
 
