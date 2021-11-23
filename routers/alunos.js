@@ -8,7 +8,7 @@ router.get('/', (req,res) => {
 
 router.get("/listall", alunosController.getAll);
 
-router.get("/listname/:name", alunosController.getSingle);
+router.get("/listid/:id", alunosController.getSingle);
 
 router.post("/add", alunosController.postCreate);
 

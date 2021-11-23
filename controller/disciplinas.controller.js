@@ -1,9 +1,9 @@
-const aluno = require("../model/alunos")
+const disciplina = require("./../model/disciplinas"); 
 
 exports.getAll = async (req,res) => {
-    await aluno.find({}).then((alunos) => {
-        console.log(alunos);
-        res.status(200).json(alunos);
+    await disciplina.find({}).then((disciplinas) => {
+        console.log(disciplinas);
+        res.status(200).json(disciplinas);
     }).catch((err) => {
         res.status(404).json({message:"Nada foi encontrado"});
         console.error(err);
@@ -12,12 +12,12 @@ exports.getAll = async (req,res) => {
 
 exports.getSingle = async (req,res) => {
     const nome = req.params.id;
-    await aluno.find({ _id:nome }).then((aluno) => { 
-        console.log(aluno);
-        if(aluno == null){ 
+    await disciplina.find({ _id:nome }).then((disciplina) => { 
+        console.log(disciplina);
+        if(disciplina == null){ 
             res.status(404).json({message: "nao foi encontrado"});
         }else{
-            res.status(200).json(aluno);
+            res.status(200).json(disciplina);
         }
     }).catch((err) => {
         res.status(404).json({message:"Nada foi encontrado"});
@@ -30,24 +30,16 @@ exports.postCreate = async (req,res) => {
     if(!req.body.nome){
         res.status(400).json({message: "esta faltando nome"});
         return;
-    }else if(!req.body.idade){
-        res.status(400).json({message: "esta faltando idade"});
+    }else if(!req.body.professor){
+        res.status(400).json({message: "esta faltando professor"});
         return;
     }
     else if(!req.body.turma){
         res.status(400).json({message: "esta faltando turma"});
         return; 
     }
-    else if(!req.body.niver){
-        res.status(400).json({message: "esta faltando niver"});
-        return; 
-    }
-    else if(!req.body.responsavel){
-        res.status(400).json({message: "esta faltando responsavel"});
-        return; 
-    }
 
-    await aluno.create(req.body).then(() => {
+    await disciplina.create(req.body).then(() => {
         res.status(200).json({message: "cadastrado com sucesso"});
     }).catch((err) => {
         res.status(400).json({message: "algo esta errado"});
@@ -60,24 +52,16 @@ exports.putUpdate = async (req,res) => {
     if(!req.body.nome){
         res.status(400).json({message: "esta faltando nome"});
         return;
-    }else if(!req.body.idade){
-        res.status(400).json({message: "esta faltando idade"});
+    }else if(!req.body.professor){
+        res.status(400).json({message: "esta faltando professor"});
         return;
     }
     else if(!req.body.turma){
         res.status(400).json({message: "esta faltando turma"});
         return; 
     }
-    else if(!req.body.niver){
-        res.status(400).json({message: "esta faltando niver"});
-        return; 
-    }
-    else if(!req.body.responsavel){
-        res.status(400).json({message: "esta faltando responsavel"});
-        return; 
-    }
 
-    await aluno.updateOne({ _id:id},req.body).then(() => { 
+    await disciplina.updateOne({ _id:id},req.body).then(() => { 
         res.status(200).json({message: "Atualizado com sucesso"});
     }).catch((err) => {
         console.error(err);
@@ -87,7 +71,7 @@ exports.putUpdate = async (req,res) => {
 
 exports.delDelete = async (req,res) => {
     if( req.params.id.length == 24){ 
-        await aluno.deleteOne({_id:req.params.id}).then(() => { 
+        await disciplina.deleteOne({_id:req.params.id}).then(() => { 
             res.status(200).json({message: "Deletado com sucesso"});
         }).catch((err) => {
             console.error(err);

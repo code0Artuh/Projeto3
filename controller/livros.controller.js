@@ -1,9 +1,9 @@
-const aluno = require("../model/alunos")
+const livro = require("../model/livros")
 
 exports.getAll = async (req,res) => {
-    await aluno.find({}).then((alunos) => {
-        console.log(alunos);
-        res.status(200).json(alunos);
+    await livro.find({}).then((livros) => {
+        console.log(livros);
+        res.status(200).json(livros);
     }).catch((err) => {
         res.status(404).json({message:"Nada foi encontrado"});
         console.error(err);
@@ -12,12 +12,12 @@ exports.getAll = async (req,res) => {
 
 exports.getSingle = async (req,res) => {
     const nome = req.params.id;
-    await aluno.find({ _id:nome }).then((aluno) => { 
-        console.log(aluno);
-        if(aluno == null){ 
+    await livro.find({ _id:nome }).then((livro) => { 
+        console.log(livro);
+        if(livro == null){ 
             res.status(404).json({message: "nao foi encontrado"});
         }else{
-            res.status(200).json(aluno);
+            res.status(200).json(livro);
         }
     }).catch((err) => {
         res.status(404).json({message:"Nada foi encontrado"});
@@ -27,27 +27,7 @@ exports.getSingle = async (req,res) => {
 
 exports.postCreate = async (req,res) => { 
 
-    if(!req.body.nome){
-        res.status(400).json({message: "esta faltando nome"});
-        return;
-    }else if(!req.body.idade){
-        res.status(400).json({message: "esta faltando idade"});
-        return;
-    }
-    else if(!req.body.turma){
-        res.status(400).json({message: "esta faltando turma"});
-        return; 
-    }
-    else if(!req.body.niver){
-        res.status(400).json({message: "esta faltando niver"});
-        return; 
-    }
-    else if(!req.body.responsavel){
-        res.status(400).json({message: "esta faltando responsavel"});
-        return; 
-    }
-
-    await aluno.create(req.body).then(() => {
+    await livro.create(req.body).then(() => {
         res.status(200).json({message: "cadastrado com sucesso"});
     }).catch((err) => {
         res.status(400).json({message: "algo esta errado"});
@@ -77,7 +57,7 @@ exports.putUpdate = async (req,res) => {
         return; 
     }
 
-    await aluno.updateOne({ _id:id},req.body).then(() => { 
+    await livro.updateOne({ _id:id},req.body).then(() => { 
         res.status(200).json({message: "Atualizado com sucesso"});
     }).catch((err) => {
         console.error(err);
@@ -87,7 +67,7 @@ exports.putUpdate = async (req,res) => {
 
 exports.delDelete = async (req,res) => {
     if( req.params.id.length == 24){ 
-        await aluno.deleteOne({_id:req.params.id}).then(() => { 
+        await livro.deleteOne({_id:req.params.id}).then(() => { 
             res.status(200).json({message: "Deletado com sucesso"});
         }).catch((err) => {
             console.error(err);
