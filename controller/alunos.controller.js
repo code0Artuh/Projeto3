@@ -38,14 +38,6 @@ exports.postCreate = async (req,res) => {
         res.status(400).json({message: "esta faltando turma"});
         return; 
     }
-    else if(!req.body.niver){
-        res.status(400).json({message: "esta faltando niver"});
-        return; 
-    }
-    else if(!req.body.responsavel){
-        res.status(400).json({message: "esta faltando responsavel"});
-        return; 
-    }
 
     await aluno.create(req.body).then(() => {
         res.status(200).json({message: "cadastrado com sucesso"});
