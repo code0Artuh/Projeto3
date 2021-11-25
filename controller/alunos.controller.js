@@ -12,7 +12,7 @@ exports.getAll = async (req,res) => {
 
 exports.getSingle = async (req,res) => {
     const nome = req.params.id;
-    await aluno.find({ _id:nome }).then((aluno) => { 
+    await aluno.findOne({ _id:nome }).then((aluno) => { 
         console.log(aluno);
         if(aluno == null){ 
             res.status(404).json({message: "nao foi encontrado"});
