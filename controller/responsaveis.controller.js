@@ -26,7 +26,15 @@ exports.getSingle = async (req,res) => {
 };
 
 exports.postCreate = async (req,res) => { 
-
+    
+    if(!req.body.nome){
+        res.status(400).json({message: "esta faltando nome"});
+        return;
+    }else if(!req.body.aluno){
+        res.status(400).json({message: "esta faltando aluno"});
+        return;
+    }
+    
     await responsavel.create(req.body).then(() => {
         res.status(200).json({message: "cadastrado com sucesso"});
     }).catch((err) => {
@@ -40,21 +48,9 @@ exports.putUpdate = async (req,res) => {
     if(!req.body.nome){
         res.status(400).json({message: "esta faltando nome"});
         return;
-    }else if(!req.body.idade){
-        res.status(400).json({message: "esta faltando idade"});
+    }else if(!req.body.aluno){
+        res.status(400).json({message: "esta faltando aluno"});
         return;
-    }
-    else if(!req.body.turma){
-        res.status(400).json({message: "esta faltando turma"});
-        return; 
-    }
-    else if(!req.body.niver){
-        res.status(400).json({message: "esta faltando niver"});
-        return; 
-    }
-    else if(!req.body.responsavel){
-        res.status(400).json({message: "esta faltando responsavel"});
-        return; 
     }
 
     await responsavel.updateOne({ _id:id},req.body).then(() => { 
