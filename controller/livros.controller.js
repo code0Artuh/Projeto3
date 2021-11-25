@@ -26,6 +26,26 @@ exports.getSingle = async (req,res) => {
 };
 
 exports.postCreate = async (req,res) => { 
+    
+        if(!req.body.titulo){
+        res.status(400).json({message: "esta faltando titulo"});
+        return;
+    }else if(!req.body.edicao){
+        res.status(400).json({message: "esta faltando edicao"});
+        return;
+    }
+    else if(!req.body.ano){
+        res.status(400).json({message: "esta faltando ano"});
+        return; 
+    }
+    else if(!req.body.autor){
+        res.status(400).json({message: "esta faltando autor"});
+        return; 
+    }
+    else if(!req.body.disciplina){
+        res.status(400).json({message: "esta faltando disciplina"});
+        return; 
+    }
 
     await livro.create(req.body).then(() => {
         res.status(200).json({message: "cadastrado com sucesso"});
@@ -37,23 +57,23 @@ exports.postCreate = async (req,res) => {
 
 exports.putUpdate = async (req,res) => {
     const id = req.params.id;
-    if(!req.body.nome){
-        res.status(400).json({message: "esta faltando nome"});
+    if(!req.body.titulo){
+        res.status(400).json({message: "esta faltando titulo"});
         return;
-    }else if(!req.body.idade){
-        res.status(400).json({message: "esta faltando idade"});
+    }else if(!req.body.edicao){
+        res.status(400).json({message: "esta faltando edicao"});
         return;
     }
-    else if(!req.body.turma){
-        res.status(400).json({message: "esta faltando turma"});
+    else if(!req.body.ano){
+        res.status(400).json({message: "esta faltando ano"});
         return; 
     }
-    else if(!req.body.niver){
-        res.status(400).json({message: "esta faltando niver"});
+    else if(!req.body.autor){
+        res.status(400).json({message: "esta faltando autor"});
         return; 
     }
-    else if(!req.body.responsavel){
-        res.status(400).json({message: "esta faltando responsavel"});
+    else if(!req.body.disciplina){
+        res.status(400).json({message: "esta faltando disciplina"});
         return; 
     }
 
