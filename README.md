@@ -1,4 +1,8 @@
 # Projeto Final M03-BackEnd
+
+<div>
+    <img align="right" alt="Rafa-yoda" height="120" width="200" src="https://developers.giphy.com/branch/master/static/api-512d36c09662682717108a38bbb5c57d.gif">
+</div>
 Projeto final do módulo 03 utilizando o padrão MVC e integração entre back e front.
 
 API criada com node, express e mongoDB.
