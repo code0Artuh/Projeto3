@@ -43,7 +43,7 @@ Responsaveis:
     aluno: { type: String, required: true}.
 
 
-Cada rota contem as opções criar, listar todos, listar por id, editar por id e deletar por id.
+# Cada rota contem as opções criar, listar todos, listar por id, editar por id e deletar por id.
 
 Tabela das rotas:
 
@@ -88,6 +88,6 @@ Responsaveis:
     /responsavel/delete/id
     
     
-O projeto contem uma collection para ser utilizada na extensão thunder client para realizar testes de conexão em todas as rotas.
+# O projeto contem uma collection para ser utilizada na extensão thunder client para realizar testes de conexão em todas as rotas.
 
-O projeto esta rodando com o mongoDB, siga o env.bkp para utilizar o dotenv caso queira, basta seguir o conteudo do arquivo para realizar a conexão com o DB.
+# O projeto esta rodando com o mongoDB, siga o env.bkp para utilizar o dotenv caso queira, basta seguir o conteudo do arquivo para realizar a conexão com o DB.
