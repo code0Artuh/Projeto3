@@ -6,18 +6,21 @@ API criada com node, express e mongoDB.
 contem 5 rotas com as seguintes propriedades:
 
 Alunos:
+
     nome: { type: String, required: true},
-    idade: { type: Number, required: true},
+    idade: { type: Number, required: true},    
     turma: { type: String, required: true},
     niver: { type: String, required: false},
     responsavel : { type: String, required: false}.
 
 Disciplinas:
+
     nome: { type: String, required: true},
     professor: { type: String, required: true},
     turma: { type: String, required: true}.
 
 Livros:
+
     titulo: { type: String, required: true},
     edicao: { type: Number, required: true},
     ano: { type: Number, required: true},
@@ -25,11 +28,13 @@ Livros:
     disciplina: { type: String, required: true}.
 
 Professores:
+
     nome: { type: String, required: true},
     turma: { type: String, required: true},
     disciplina: { type: String, required: true}.
     
 Responsaveis:
+
     nome: { type: String, required: true},
     aluno: { type: String, required: true}.
 
@@ -39,6 +44,7 @@ Cada rota contem as opções criar, listar todos, listar por id, editar por id e
 Tabela das rotas:
 
 Alunos:
+
     /aluno/listall
     /aluno/listid/id
     /aluno/update/id
@@ -80,4 +86,4 @@ Responsaveis:
     
 O projeto contem uma collection para ser utilizada na extensão thunder client para realizar testes de conexão em todas as rotas.
 
-O projeto esta rodando com a conexão direta com o mongoDB, porem esta devidamente configurado para a utilização do dotenv caso queira, basta trocar o conteudo do link para process.env.(opção desejada).
+O projeto esta rodando com o mongoDB, siga o env.bkp para utilizar o dotenv caso queira, basta seguir o conteudo do arquivo para realizar a conexão com o DB.
