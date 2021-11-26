@@ -93,29 +93,37 @@ Responsaveis:
 add:
 
 
-    utilizando a rota add você consegue adicionar objetos no banco de dados, você precisa seguir o modelo de dados mencionado
-    no inicio deste documento, tambem encontrara os modelos detalhados dentro da pasta models do projeto onde contem um arquivo para cada rota.
+    utilizando a rota add você consegue adicionar objetos no banco de dados,
+    você precisa seguir o modelo de dados mencionado
+    no inicio deste documento, tambem encontrara os modelos detalhados
+    dentro da pasta models do projeto onde contem um arquivo para cada rota.
 
 listall:
 
 
-    utilizando a rota listall você consegue puxar todos os objetos salvos dentro do banco de dados e lista todos eles em formato json.
+    utilizando a rota listall você consegue puxar todos os objetos salvos
+    dentro do banco de dados e lista todos eles em formato json.
 
 listid:
 
 
-    utilizando a rota listid você consegue puxar um unico objeto especificado pelo id e recebe ele em formato json.
+    utilizando a rota listid você consegue puxar um unico objeto 
+    especificado pelo id e recebe ele em formato json.
 
 update:
 
 
-    utilizando a rota update você consegue alterar as propriedades de um objeto já existente no banco de dados,devemos nos atentar em seguir
-    os mesmos padrões de inserção de dados do add seguindo as orientações dos models de cada rota existente no projeto da api.
+    utilizando a rota update você consegue alterar as propriedades
+    de um objeto já existente no banco de dados,
+    devemos nos atentar em seguir
+    os mesmos padrões de inserção de dados do add seguindo
+    as orientações dos models de cada rota existente no projeto da api.
 
 delete:
 
 
-    utilizando a rota delete você consegue apagar um objeto especifico de dentro do banco de dados apontando ele pelo id.
+    utilizando a rota delete você consegue apagar
+    um objeto especifico de dentro do banco de dados apontando ele pelo id.
 
 # O projeto contem uma collection para ser utilizada na extensão thunder client para realizar testes de conexão em todas as rotas.
 
